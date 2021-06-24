@@ -6,6 +6,7 @@
  */ 
 
 #include <avr/io.h>
+#include <stdlib.h>
 
 // lub tablice przekazujemy jako uint8_t tab []
 void convertDecTo16(uint32_t convertedValue, uint32_t base, uint8_t *tab, int length) {
@@ -38,8 +39,18 @@ void insertInAscendingManner(int tab[], int length, int insertedValue) {
         }        
     }
     tab[iterator] = insertedValue;
-
 }
+
+void createDynamicArrayWithChars(char * tab, int length){
+
+    // zadanie z dynamicznym tworzeniem tablicy
+    tab = (char *) malloc(length * sizeof(char)); //przydzielenie
+    
+    for (int i = 0; i <= length; i++)
+        tab[i] = 40 + i; //lub 40 + i
+    
+    free(tab); //zwolnienie pamiêci    };
+}    
 
 //zadanie z konwersj¹
 uint32_t convertedValue = 65234;
@@ -57,18 +68,21 @@ int tab3[] = {1, 2, 7, 9, 11, 16, 20, 25};
 int length3 = 8;
 int insertedValue = 18;
 
+// zadanie z dynamicznym tworzeniem tablicy
+char * tab4;
+int length4 = 10;
+
+
 
 int main(void)
 {
     //convertDecTo16(convertedValue, base, tab, length);
     //result = sumRecursive(tab2, amountOfElements);
     
-    insertInAscendingManner(tab3, length3, insertedValue);
+    //insertInAscendingManner(tab3, length3, insertedValue);
     
-    insertedValue = 0;
-    insertInAscendingManner(tab3, length3, insertedValue);
-    insertedValue = 17;
-    insertInAscendingManner(tab3, length3, insertedValue);
+    createDynamicArrayWithChars(tab4, length4);
+
     return 0;
 }
 

@@ -8,11 +8,16 @@ c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/..
                               main.o (__do_copy_data)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_clear_bss.o)
                               main.o (__do_clear_bss)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr51\libc.a(malloc.o)
+                              main.o (malloc)
 
 Allocating common symbols
 Common symbol       size              file
 
+tab4                0x2               main.o
+__brkval            0x2               c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr51\libc.a(malloc.o)
 tab                 0x8               main.o
+__flp               0x2               c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr51\libc.a(malloc.o)
 
 Discarded input sections
 
@@ -25,6 +30,12 @@ Discarded input sections
                 0x00000000       0x88 main.o
  .text.sumRecursive
                 0x00000000       0x2c main.o
+ .text.insertInAscendingManner
+                0x00000000       0x66 main.o
+ .data.insertedValue
+                0x00000000        0x2 main.o
+ .data.length3  0x00000000        0x2 main.o
+ .data.tab3     0x00000000       0x10 main.o
  .bss.result    0x00000000        0x2 main.o
  .data.amountOfElements
                 0x00000000        0x2 main.o
@@ -34,7 +45,6 @@ Discarded input sections
  .data.base     0x00000000        0x4 main.o
  .data.convertedValue
                 0x00000000        0x4 main.o
- COMMON         0x00000000        0x8 main.o
  .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_udivmodsi4.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_udivmodsi4.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_udivmodsi4.o)
@@ -99,6 +109,8 @@ Discarded input sections
                 0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_clear_bss.o)
  .text.libgcc.fixed
                 0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_clear_bss.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr51\libc.a(malloc.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr51\libc.a(malloc.o)
 
 Memory Configuration
 
@@ -226,7 +238,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x186
+.text           0x00000000      0x358
  *(.vectors)
  .vectors       0x00000000       0x8c C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega128a/avr51/crtatmega128a.o
                 0x00000000                __vector_default
@@ -322,16 +334,20 @@ END GROUP
                 0x000000c6                __vector_20
                 0x000000c8                . = ALIGN (0x2)
  *(.text.*)
- .text.insertInAscendingManner
-                0x000000c8       0x66 main.o
-                0x000000c8                insertInAscendingManner
- .text.main     0x0000012e       0x54 main.o
-                0x0000012e                main
-                0x00000182                . = ALIGN (0x2)
+ .text.createDynamicArrayWithChars
+                0x000000c8       0x32 main.o
+                0x000000c8                createDynamicArrayWithChars
+ .text.main     0x000000fa       0x18 main.o
+                0x000000fa                main
+ .text.avr-libc
+                0x00000112      0x242 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr51\libc.a(malloc.o)
+                0x00000112                malloc
+                0x00000242                free
+                0x00000354                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000182        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_exit.o)
-                0x00000182                _exit
-                0x00000182                exit
+ .fini9         0x00000354        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_exit.o)
+                0x00000354                _exit
+                0x00000354                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -350,44 +366,49 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000182        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_exit.o)
+ .fini0         0x00000354        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000186                _etext = .
+                0x00000358                _etext = .
 
-.data           0x00800100       0x14 load address 0x00000186
+.data           0x00800100        0x8 load address 0x00000358
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
+ .data          0x00800100        0x6 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr51\libc.a(malloc.o)
+                0x00800100                __malloc_heap_end
+                0x00800102                __malloc_heap_start
+                0x00800104                __malloc_margin
  *(.data*)
- .data.insertedValue
-                0x00800100        0x2 main.o
-                0x00800100                insertedValue
- .data.length3  0x00800102        0x2 main.o
-                0x00800102                length3
- .data.tab3     0x00800104       0x10 main.o
-                0x00800104                tab3
+ .data.length4  0x00800106        0x2 main.o
+                0x00800106                length4
  *(.gnu.linkonce.d*)
  *(.rodata)
  *(.rodata*)
  *(.gnu.linkonce.r*)
-                0x00800114                . = ALIGN (0x2)
-                0x00800114                _edata = .
-                0x00800114                PROVIDE (__data_end, .)
+                0x00800108                . = ALIGN (0x2)
+                0x00800108                _edata = .
+                0x00800108                PROVIDE (__data_end, .)
 
-.bss            0x00800114        0x0
-                0x00800114                PROVIDE (__bss_start, .)
+.bss            0x00800108        0xe
+                0x00800108                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
  *(COMMON)
-                0x00800114                PROVIDE (__bss_end, .)
-                0x00000186                __data_load_start = LOADADDR (.data)
-                0x0000019a                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x00800108        0xa main.o
+                0x00800108                tab4
+                0x0080010a                tab
+ COMMON         0x00800112        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr51\libc.a(malloc.o)
+                0x00800112                __brkval
+                0x00800114                __flp
+                0x00800116                PROVIDE (__bss_end, .)
+                0x00000358                __data_load_start = LOADADDR (.data)
+                0x00000360                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800114        0x0
+.noinit         0x00800116        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x00800114                _end = .
-                [!provide]                PROVIDE (__heap_start, .)
+                0x00800116                _end = .
+                0x00800116                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
  *(.eeprom*)
@@ -430,6 +451,7 @@ END GROUP
  *(.comment)
  .comment       0x00000000       0x30 main.o
                                  0x31 (size before relaxing)
+ .comment       0x00000030       0x31 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr51\libc.a(malloc.o)
 
 .note.gnu.avr.deviceinfo
                 0x00000000       0x40
@@ -451,42 +473,42 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000       0x38
+.debug_aranges  0x00000000       0x40
  *(.debug_aranges)
  .debug_aranges
-                0x00000000       0x38 main.o
+                0x00000000       0x40 main.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000      0xacd
+.debug_info     0x00000000      0xb35
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x780 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega128a/avr51/crtatmega128a.o
- .debug_info    0x00000780      0x34d main.o
+ .debug_info    0x00000780      0x3b5 main.o
 
-.debug_abbrev   0x00000000      0x888
+.debug_abbrev   0x00000000      0x8b0
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x718 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega128a/avr51/crtatmega128a.o
- .debug_abbrev  0x00000718      0x170 main.o
+ .debug_abbrev  0x00000718      0x198 main.o
 
-.debug_line     0x00000000      0x2fb
+.debug_line     0x00000000      0x338
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x16a C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega128a/avr51/crtatmega128a.o
- .debug_line    0x0000016a      0x191 main.o
+ .debug_line    0x0000016a      0x1ce main.o
 
-.debug_frame    0x00000000       0xa4
+.debug_frame    0x00000000       0xc0
  *(.debug_frame)
- .debug_frame   0x00000000       0xa4 main.o
+ .debug_frame   0x00000000       0xc0 main.o
 
-.debug_str      0x00000000      0x47d
+.debug_str      0x00000000      0x4b2
  *(.debug_str)
  .debug_str     0x00000000      0x27d C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.6.364/gcc/dev/atmega128a/avr51/crtatmega128a.o
- .debug_str     0x0000027d      0x200 main.o
-                                0x234 (size before relaxing)
+ .debug_str     0x0000027d      0x235 main.o
+                                0x26e (size before relaxing)
 
-.debug_loc      0x00000000      0x305
+.debug_loc      0x00000000      0x3c4
  *(.debug_loc)
- .debug_loc     0x00000000      0x305 main.o
+ .debug_loc     0x00000000      0x3c4 main.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -506,9 +528,9 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000       0x28
+.debug_ranges   0x00000000       0x30
  *(.debug_ranges)
- .debug_ranges  0x00000000       0x28 main.o
+ .debug_ranges  0x00000000       0x30 main.o
 
 .debug_macro
  *(.debug_macro)
