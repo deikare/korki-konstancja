@@ -52,7 +52,7 @@ void createDynamicArrayWithChars(char * tab, int length){
     free(tab); //zwolnienie pamiêci    };
 }    
 
-//zadanie z konwersj¹
+/*//zadanie z konwersj¹
 uint32_t convertedValue = 65234;
 uint32_t base = 16;
 const int length = 8;
@@ -70,9 +70,37 @@ int insertedValue = 18;
 
 // zadanie z dynamicznym tworzeniem tablicy
 char * tab4;
-int length4 = 10;
+int length4 = 10;*/
 
+// zadanie ze œredni¹ arytmetyczn¹ elementów (i-1) oraz (i+1)
+float * tab5;
+int length5 = 10;
 
+void createDynamicTab5(float * arrayBeginning, int length) {
+    arrayBeginning = (float *) malloc(length * sizeof(float)); //przydzielenie
+    
+    for (int i = 0; i < length; ++i)
+        arrayBeginning[i] = ((float)i + 15.5);
+}
+
+//typ A
+void meanValueOfEachElementOfArray_A(float * tab, int length) {
+    float * tabCopy = (float *) malloc(length * sizeof(float));;
+    
+    for (int i = 0; i < length; ++i)
+        tabCopy[i] = tab[i]; //tworzymy g³êbok¹ kopiê
+        
+    for (int i = 1; i < length - 1; ++i)
+        tab[i] = (tabCopy[i - 1] + tabCopy[i + 1]) / 2.0f;
+        
+    free(tabCopy);
+}
+
+//typ B
+void meanValueOfEachElementOfArray_B(float * tab, int length) {   
+    for (int i = 1; i < length - 1; ++i)
+        tab[i] = (tab[i - 1] + tab[i + 1]) / 2.0f;
+}
 
 int main(void)
 {
@@ -81,8 +109,12 @@ int main(void)
     
     //insertInAscendingManner(tab3, length3, insertedValue);
     
-    createDynamicArrayWithChars(tab4, length4);
+    //createDynamicArrayWithChars(tab4, length4);
 
+    createDynamicTab5(tab5, length5);
+    meanValueOfEachElementOfArray_A(tab5, length5);
+    //meanValueOfEachElementOfArray_B(tab5, length5);
+    free(tab5);
     return 0;
 }
 
